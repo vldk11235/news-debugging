@@ -16,14 +16,14 @@ export default function CenteredTabs() {
         <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
             <Tabs value={value} onChange={handleChange} centered>
 
-                <nav className="nav">
-                    <Link to={`/top-headlines?category=general`}> <Tab label="General" /></Link>
-                    <Link to={`/top-headlines?category=technology`}><Tab label="Tech" /></Link>
-                    <Link to={`/top-headlines?category=business`}> <Tab label="Business" /></Link>
-                    <Link to={`/top-headlines?category=entertainment`}><Tab label="Entertainment" /></Link>
-                    <Link to={`/top-headlines?category=health`}> <Tab label="Health" /></Link>
-                    <Link to={`/top-headlines?category=science`}><Tab label="Science" /></Link>
-                </nav>
+                {/*<nav className="nav">*/}
+                <Tab label="General" to={`/top-headlines?category=general`} component={Link} />
+                <Tab label="Tech" to={`/top-headlines?category=technology`} component={Link} />
+                <Tab label="Business" to={`/top-headlines?category=business`} component={Link} />
+                     <Tab label="Entertainment" to={`/top-headlines?category=entertainment`} component={Link} />
+                    <Tab label="Health" to={`/top-headlines?category=health`} component={Link} />
+                    <Tab label="Science" to={`/top-headlines?category=science`} component={Link} />
+                {/*</nav>*/}
 
 
 

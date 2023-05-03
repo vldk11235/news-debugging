@@ -5,12 +5,14 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
-
+const theme = {
+    spacing: 8,
+}
 const NewsItem = ({title, description, url, urlToImage}) => {
 
 
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ maxWidth: 345,  m: 2 }}>
             <CardActionArea>
                 <CardMedia
                     component="img"

@@ -2,6 +2,11 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 import {useLocation} from "react-router-dom";
 import NewsItem from "./NewsItem";
+import CssBaseline from '@mui/material/CssBaseline';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+
+
 
 const NewsListByCategory = () => {
     const [articles, setArticles] = useState([]);
@@ -29,19 +34,28 @@ const NewsListByCategory = () => {
 
 
     return (
-        <div>
+        <React.Fragment>
+            <CssBaseline />
+            <Container maxWidth="xs">
+                <Box sx={{ height: '100vh' }}>
+                {/*<div>*/}
 
-            {articles.map((article, index) => (
-                <NewsItem
-                    key={index}
-                    title={articles[index].title}
-                    description={articles[index].description}
-                    urlToImage={articles[index].urlToImage}
-                    url={articles[index].urlToImage}
 
-                />
-            ))}
-        </div>
+                    {articles.map((article, index) => (
+                        <NewsItem
+                            key={index}
+                            title={articles[index].title}
+                            description={articles[index].description}
+                            urlToImage={articles[index].urlToImage}
+                            url={articles[index].urlToImage}
+
+                        />
+                    ))}
+                {/*</div>*/}
+                </Box>
+            </Container>
+        </React.Fragment>
+
     )
 }
 
