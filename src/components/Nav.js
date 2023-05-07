@@ -17,12 +17,12 @@ export default function CenteredTabs() {
             <Tabs value={value} onChange={handleChange} centered>
 
                 {/*<nav className="nav">*/}
-                <Tab label="General" to={`/top-headlines?category=general`} component={Link} />
-                <Tab label="Tech" to={`/top-headlines?category=technology`} component={Link} />
-                <Tab label="Business" to={`/top-headlines?category=business`} component={Link} />
-                     <Tab label="Entertainment" to={`/top-headlines?category=entertainment`} component={Link} />
-                    <Tab label="Health" to={`/top-headlines?category=health`} component={Link} />
-                    <Tab label="Science" to={`/top-headlines?category=science`} component={Link} />
+                <Tab label="General" to={`/?category=general`} component={Link} />
+                <Tab label="Tech" to={`/?category=technology`} component={Link} />
+                <Tab label="Business" to={`/?category=business`} component={Link} />
+                     <Tab label="Entertainment" to={`/?category=entertainment`} component={Link} />
+                    <Tab label="Health" to={`/?category=health`} component={Link} />
+                    <Tab label="Science" to={`/?category=science`} component={Link} />
                 {/*</nav>*/}
 
 

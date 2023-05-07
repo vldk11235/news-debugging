@@ -23,8 +23,9 @@ function App() {
       <Router>
         <Header/>
         <Routes>
-          <Route exact path="/" element={<NewsListByFilters/>} />
-          <Route path="/top-headlines" element={<NewsListByCategory/>} />
+            {/*<Route exact path="/" element={NewsListByCategory} />*/}
+          <Route exact path="/" element={<NewsListByCategory/>} />
+          {/*<Route path="/top-headlines" element={<NewsListByCategory/>} />*/}
         </Routes>
 
 

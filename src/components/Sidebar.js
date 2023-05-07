@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 
-const categories = ['General', 'Business', 'Entertainment', 'Health', 'Science', 'Sports', 'Technology'];
-const countries = ['us', 'ua', 'au', 'ca', 'in', 'fr', 'de', 'jp'];
+// const categories = ['General', 'Business', 'Entertainment', 'Health', 'Science', 'Sports', 'Technology'];
+const countries = ['ar', 'de', 'en', 'es', 'he', 'fr', 'it', 'nl', 'no', 'pt', 'sv'];
+const sortBy = ['relevancy', 'popularity', 'publishedAt'];
 
 const Sidebar = ({onFilterChange}) => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -10,9 +11,15 @@ const Sidebar = ({onFilterChange}) => {
     //     onFilterChange({filterType: 'category', value: e.target.value});
     // };
 
+
+
     // const handleCountryChange = (e) => {
     //     onFilterChange({filterType: 'country', value: e.target.value});
     // };
+
+    const handleSortByChange = (e) => {
+        onFilterChange({filterType: 'sortBy', value: e.target.value});
+    };
 
     const handleSearchInputChange = (e) => {
         setSearchTerm(e.target.value);
@@ -57,6 +64,18 @@ const Sidebar = ({onFilterChange}) => {
             {/*        ))}*/}
             {/*    </select>*/}
             {/*</label>*/}
+            <label>
+                Sort by:
+                <select onChange={handleSortByChange}>
+                    <option value="">All</option>
+                    {sortBy.map((sortBy, index) => (
+                        <option key={index} value={sortBy}>
+                            {sortBy.toUpperCase()}
+                        </option>
+                    ))}
+                </select>
+            </label>
+
         </div>
     );
 };
