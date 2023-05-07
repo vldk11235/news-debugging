@@ -1,24 +1,70 @@
-import React from "react";
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
+// import React from "react";
+// import Card from '@mui/material/Card';
+// import CardContent from '@mui/material/CardContent';
+// import CardMedia from '@mui/material/CardMedia';
+// import Typography from '@mui/material/Typography';
+// import { CardActionArea } from '@mui/material';
+//
+// const NewsItem = (props) => {
+//
+// const {title, description, url, urlToImage} = props;
+//
+//     return (
+//         <Card sx={{ maxWidth: 345,  mb: 5 }}>
+//             <CardActionArea>
+//                 <CardMedia
+//                     component="img"
+//                     height="140"
+//                     image={urlToImage}
+//                     alt="{urlToImage}"
+//                 />
+//                 <CardContent>
+//                     <Typography gutterBottom variant="h5" component="div">
+//                         <a href={url}>{title}</a>
+//                     </Typography>
+//                     <Typography variant="body2" color="text.secondary">
+//                         {description}
+//                     </Typography>
+//                 </CardContent>
+//             </CardActionArea>
+//         </Card>
+//
+//     )
+// }
+//
+// export default NewsItem
 
-const theme = {
-    spacing: 8,
-}
-const NewsItem = ({title, description, url, urlToImage}) => {
 
+import React, { useState } from "react";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import { CardActionArea } from "@mui/material";
+
+const NewsItem = (props) => {
+    const { title, description, url, urlToImage } = props;
+    const [imageError, setImageError] = useState(false);
+
+    const handleImageError = () => {
+        setImageError(true);
+    };
+
+    if (imageError) {
+        console.log('image error', imageError);
+
+        return null;
+    }
 
     return (
-        <Card sx={{ maxWidth: 345,  m: 2 }}>
+        <Card sx={{ maxWidth: 345, mb: 5 }}>
             <CardActionArea>
                 <CardMedia
                     component="img"
                     height="140"
                     image={urlToImage}
                     alt="{urlToImage}"
+                    onError={handleImageError}
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
@@ -30,17 +76,7 @@ const NewsItem = ({title, description, url, urlToImage}) => {
                 </CardContent>
             </CardActionArea>
         </Card>
-        // <div>
-        //     <div className="news-app">
-        //         <div className="news-item">
-        //             <img className="news-img" src={urlToImage} alt={urlToImage}/>
-        //             <h3><a href={url}>{title}</a></h3>
-        //             <p>{description}</p>
-        //         </div>
-        //     </div>
-        //
-        // </div>
-    )
-}
+    );
+};
 
-export default NewsItem
+export default NewsItem;
