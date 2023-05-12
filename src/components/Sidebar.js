@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import Input from '@mui/material/Input';
-import Button from '@mui/joy/Button';
-import {Select} from '@mui/joy';
-import {Option} from '@mui/joy';
+import Button from '@mui/material/Button';
+import {Select} from '@mui/material';
+import {MenuItem} from '@mui/material';
 
 // const categories = ['General', 'Business', 'Entertainment', 'Health', 'Science', 'Sports', 'Technology'];
 const countries = ['ar', 'de', 'en', 'es', 'he', 'fr', 'it', 'nl', 'no', 'pt', 'sv'];
@@ -75,11 +75,11 @@ const Sidebar = ({onFilterChange}) => {
             {/*<label>*/}
                 Sort by:
                 <Select onChange={handleSortByChange}>
-                    <Option value="">All</Option>
+                    <MenuItem value="">All</MenuItem>
                     {sortBy.map((sortBy, index) => (
-                        <Option key={index} value={sortBy}>
+                        <MenuItem key={index} value={sortBy}>
                             {sortBy.toUpperCase()}
-                        </Option>
+                        </MenuItem>
                     ))}
                 </Select>
             {/*</label>*/}

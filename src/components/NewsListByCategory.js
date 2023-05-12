@@ -2,9 +2,10 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import {useLocation} from "react-router-dom";
-import {Container, Box, CssBaseline, Pagination} from "@mui/material";
+import {Container, Box, CssBaseline} from "@mui/material";
 import NewsItem from "./NewsItem";
 import Sidebar from "./Sidebar";
+import Pagination from "@mui/material/Pagination";
 
 const NewsListByCategory = () => {
     const [articles, setArticles] = useState([]);

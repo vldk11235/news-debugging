@@ -1,5 +1,5 @@
 import './App.css';
-import NewsListByFilters from "./components/NewsListByFilters";
+import React from "react";
 import NewsListByCategory from "./components/NewsListByCategory";
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -7,30 +7,84 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import Header from "./components/Header";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+// import {
+//     Experimental_CssVarsProvider as CssVarsProvider,
+//     useColorScheme,
+// } from '@mui/material/styles';
+
+import {Button} from "@mui/material";
+// import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import useDarkMode from './components/useDarkMode';
+import {useTheme} from "@mui/system";
 
 
+const ModeSwitcher = ({ themeToggler }) => {
+    const theme = useTheme();
+    const mode = theme.palette.mode;
 
-// axios.get('/api/v2/everything?q=bitcoin&apiKey=42b0dee9b6904907823c7975c2a3fd92')
-//
-//     .then((response) => {
-//       console.log(response);
-//     }, (error) => {
-//       console.log(error);
-//     });
+    return (
+        <Button
+            variant="outlined"
+            onClick={() => {
+                themeToggler();
+            }}
+        >
+            {mode === 'light' ? 'Dark' : 'Light'}
+        </Button>
+    );
+};
+
+
 
 function App() {
-  return (
-      <Router>
-        <Header/>
-        <Routes>
-            {/*<Route exact path="/" element={NewsListByCategory} />*/}
-          <Route exact path="/" element={<NewsListByCategory/>} />
-          {/*<Route path="/top-headlines" element={<NewsListByCategory/>} />*/}
-        </Routes>
+    const [theme, themeToggler] = useDarkMode();
+    const muiTheme = createTheme({
+        palette: {
+            mode: theme,
+        },
+    });
 
-
-      </Router>
-  );
+    return (
+        <Router>
+            <ThemeProvider theme={muiTheme}>
+                <ModeSwitcher themeToggler={themeToggler} />
+                <Header />
+                <Routes>
+                    <Route exact path="/" element={<NewsListByCategory />} />
+                </Routes>
+            </ThemeProvider>
+        </Router>
+    );
 }
+
+// function App() {
+//     return (
+//         <Router>
+//
+//             <ThemeProvider theme={theme}>
+//                 <ModeSwitcher />
+//                 <Header />
+//                 <Routes>
+//                     <Route exact path="/" element={<NewsListByCategory />} />
+//                 </Routes>
+//             </ThemeProvider>
+//         </Router>
+    //     <Router>
+    //         <CssVarsProvider>
+    //             <ModeSwitcher/>
+    //             <Header/>
+    //             <Routes>
+    //                 <Route exact path="/" element={<NewsListByCategory/>}/>
+    //             </Routes>
+    //
+    //         </CssVarsProvider>
+    //
+    //
+    //
+    //
+    //     </Router>
+    // );
+// }
 
 export default App;
