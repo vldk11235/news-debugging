@@ -6,7 +6,7 @@ import CenteredTabs from "./Nav";
 const Header = () => {
     return(
         <div className="header">
-            <Logo />
+            {/*<Logo />*/}
             {/*<Nav />*/}
             <CenteredTabs></CenteredTabs>
         </div>

@@ -1,4 +1,8 @@
 import React, {useState} from 'react';
+import Input from '@mui/material/Input';
+import Button from '@mui/joy/Button';
+import {Select} from '@mui/joy';
+import {Option} from '@mui/joy';
 
 // const categories = ['General', 'Business', 'Entertainment', 'Health', 'Science', 'Sports', 'Technology'];
 const countries = ['ar', 'de', 'en', 'es', 'he', 'fr', 'it', 'nl', 'no', 'pt', 'sv'];
@@ -36,11 +40,15 @@ const Sidebar = ({onFilterChange}) => {
         <div className="sidebar">
             <h3>Filters</h3>
             <form onSubmit={handleSearchSubmit}>
-                <label>
-                    Search:
-                    <input type="text" value={searchTerm} onChange={handleSearchInputChange}/>
-                </label>
-                <button type="submit">Search</button>
+                {/*<label>*/}
+                {/*    Search:*/}
+                {/*    <input type="text" value={searchTerm} onChange={handleSearchInputChange}/>*/}
+                {/*</label>*/}
+
+
+                    <Input placeholder="Type here" id="standard-basic" label="Search" variant="standard" type="text" value={searchTerm} onChange={handleSearchInputChange}/>
+
+                <Button type="submit">Search</Button>
             </form>
             {/*<label>*/}
             {/*    Category:*/}
@@ -64,17 +72,17 @@ const Sidebar = ({onFilterChange}) => {
             {/*        ))}*/}
             {/*    </select>*/}
             {/*</label>*/}
-            <label>
+            {/*<label>*/}
                 Sort by:
-                <select onChange={handleSortByChange}>
-                    <option value="">All</option>
+                <Select onChange={handleSortByChange}>
+                    <Option value="">All</Option>
                     {sortBy.map((sortBy, index) => (
-                        <option key={index} value={sortBy}>
+                        <Option key={index} value={sortBy}>
                             {sortBy.toUpperCase()}
-                        </option>
+                        </Option>
                     ))}
-                </select>
-            </label>
+                </Select>
+            {/*</label>*/}
 
         </div>
     );

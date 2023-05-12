@@ -115,9 +115,21 @@ const NewsListByCategory = () => {
     return (
         <React.Fragment>
             <CssBaseline/>
-            <Sidebar onFilterChange={handleFilterChange} />
-            <Container maxWidth="md">
-                <Box
+
+            <Container maxWidth="lg"
+                       sx={{
+                           // height: "100vh",
+                           width: "100%",
+                           mt: 5,
+                           display: "flex",
+                           flexDirection: "row",
+                           flexWrap: "nowrap",
+                           justifyContent: "space-around",
+                       }}>
+                <Sidebar onFilterChange={handleFilterChange}
+                         flexGrow={1}
+                />
+                <Box flexGrow={3}
                     sx={{
                         // height: "100vh",
                         width: "100%",
@@ -125,6 +137,7 @@ const NewsListByCategory = () => {
                         display: "flex",
                         flexWrap: "wrap",
                         justifyContent: "space-around",
+
                     }}
                 >
                     {currentItems.map((article, index) => (
@@ -136,15 +149,17 @@ const NewsListByCategory = () => {
                             url={article.url}
                         />
                     ))}
+
                 </Box>
-                <Pagination
-                    count={pageCount}
-                    page={currentPage}
-                    onChange={handleChange}
-                    color="primary"
-                    sx={{mt: 3, mb: 5, display: "flex", justifyContent: "center"}}
-                />
+
             </Container>
+            <Pagination
+                count={pageCount}
+                page={currentPage}
+                onChange={handleChange}
+                color="primary"
+                sx={{mt: 3, mb: 5, display: "flex", justifyContent: "center"}}
+            />
         </React.Fragment>
     );
 };
