@@ -41,6 +41,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
+import { Link } from '@mui/material';
 
 const NewsItem = (props) => {
     const { title, description, url, urlToImage } = props;
@@ -67,8 +68,12 @@ const NewsItem = (props) => {
                     onError={handleImageError}
                 />
                 <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        <a href={url}>{title}</a>
+                    <Typography gutterBottom variant="h5" component="div" >
+                        <Link
+                            underline="none"
+                               color="text.primary"
+                            href={url}>{title}
+                        </Link>
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                         {description}
