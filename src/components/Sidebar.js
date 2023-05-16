@@ -6,7 +6,7 @@ import {MenuItem} from '@mui/material';
 
 // const categories = ['General', 'Business', 'Entertainment', 'Health', 'Science', 'Sports', 'Technology'];
 const countries = ['ar', 'de', 'en', 'es', 'he', 'fr', 'it', 'nl', 'no', 'pt', 'sv'];
-const sortBy = ['relevancy', 'popularity', 'publishedAt'];
+const sortBy = ['Relevancy', 'Popularity', 'PublishedAt'];
 
 const Sidebar = ({onFilterChange}) => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -74,11 +74,14 @@ const Sidebar = ({onFilterChange}) => {
             {/*</label>*/}
             {/*<label>*/}
                 Sort by:
-                <Select onChange={handleSortByChange}>
-                    <MenuItem value="">All</MenuItem>
+                <Select
+                    defaultValue='defaultSort'
+                    sx={{ m: 1, minWidth: 120 }}
+                    onChange={handleSortByChange}>
+                    <MenuItem value='defaultSort'>All</MenuItem>
                     {sortBy.map((sortBy, index) => (
                         <MenuItem key={index} value={sortBy}>
-                            {sortBy.toUpperCase()}
+                            {sortBy}
                         </MenuItem>
                     ))}
                 </Select>
