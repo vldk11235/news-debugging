@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/vldk11235/news-debugging/static/css/main.5bbfacb1.css",
-    "main.js": "/vldk11235/news-debugging/static/js/main.a438c575.js",
+    "main.js": "/vldk11235/news-debugging/static/js/main.0c3f4756.js",
     "static/js/787.998b4c01.chunk.js": "/vldk11235/news-debugging/static/js/787.998b4c01.chunk.js",
     "static/media/roboto-all-500-normal.woff": "/vldk11235/news-debugging/static/media/roboto-all-500-normal.0ab669b7a0d19b178f57.woff",
     "static/media/roboto-all-700-normal.woff": "/vldk11235/news-debugging/static/media/roboto-all-700-normal.a457fde362a540fcadff.woff",
@@ -38,11 +38,11 @@
     "static/media/roboto-greek-ext-700-normal.woff2": "/vldk11235/news-debugging/static/media/roboto-greek-ext-700-normal.bd9854c751441ccc1a70.woff2",
     "index.html": "/vldk11235/news-debugging/index.html",
     "main.5bbfacb1.css.map": "/vldk11235/news-debugging/static/css/main.5bbfacb1.css.map",
-    "main.a438c575.js.map": "/vldk11235/news-debugging/static/js/main.a438c575.js.map",
+    "main.0c3f4756.js.map": "/vldk11235/news-debugging/static/js/main.0c3f4756.js.map",
     "787.998b4c01.chunk.js.map": "/vldk11235/news-debugging/static/js/787.998b4c01.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5bbfacb1.css",
-    "static/js/main.a438c575.js"
+    "static/js/main.0c3f4756.js"
   ]
 }
