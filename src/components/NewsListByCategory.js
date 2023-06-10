@@ -1,4 +1,3 @@
-
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import {useLocation} from "react-router-dom";
@@ -12,26 +11,15 @@ const NewsListByCategory = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage] = useState(10);
 
-
-
     const [filters, setFilters] = useState({
-        // category: '',
-        // country: '',
         sortBy: '',
         searchTerm: '',
     });
 
     const location = useLocation();
     const category = new URLSearchParams(location.search).get("category");
-    // const initialCategory = new URLSearchParams(location.search).get('category');
-    // const location = useLocation();
     const initialCategory = new URLSearchParams(location.search).get("category") || "general";
 
-    // useEffect(() => {
-    //     if (initialCategory) {
-    //         setFilters((prevFilters) => ({ ...prevFilters, category: initialCategory }));
-    //     }
-    // }, [initialCategory]);
     useEffect(() => {
         axios
             .get(
@@ -71,15 +59,13 @@ const NewsListByCategory = () => {
     }, [category]);
 
     useEffect(() => {
-        const { country, sortBy, searchTerm } = filters;
+        const {country, sortBy, searchTerm} = filters;
         const apiUrl = 'https://newsapi.org/v2/everything';
         const apiKey = process.env.REACT_APP_API_KEY;
         console.log(searchTerm);
 
         let query = `?pageSize=50&apiKey=${apiKey}`;
 
-        // if (category) query += `&category=${category}`;
-        // if (country) query += `&language=${country}`;
         if (searchTerm) query += `&q=${searchTerm}`;
         if (sortBy) query += `&sortBy=${sortBy}`
 
@@ -95,7 +81,7 @@ const NewsListByCategory = () => {
             });
     }, [filters]);
 
-    const handleFilterChange = ({ filterType, value }) => {
+    const handleFilterChange = ({filterType, value}) => {
         setFilters((prevFilters) => ({
             ...prevFilters,
             [filterType]: value,
@@ -106,9 +92,7 @@ const NewsListByCategory = () => {
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentItems = articles.slice(indexOfFirstItem, indexOfLastItem);
-
     const pageCount = Math.ceil(articles.length / itemsPerPage);
-
     const handleChange = (event, value) => {
         setCurrentPage(value);
     };
@@ -131,15 +115,15 @@ const NewsListByCategory = () => {
                          flexGrow={1}
                 />
                 <Box flexGrow={3}
-                    sx={{
-                        // height: "100vh",
-                        width: "100%",
-                        mt: 5,
-                        display: "flex",
-                        flexWrap: "wrap",
-                        justifyContent: "space-around",
+                     sx={{
+                         // height: "100vh",
+                         width: "100%",
+                         mt: 5,
+                         display: "flex",
+                         flexWrap: "wrap",
+                         justifyContent: "space-around",
 
-                    }}
+                     }}
                 >
                     {currentItems.map((article, index) => (
                         <NewsItem
